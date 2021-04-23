@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .scale {
+            -webkit-transform 2s;
+            transition: transform 2s;
+        }
+
+            .scale:hover {
+                -webkit-transform: scale(1.2);
+            }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse" style="margin-bottom:0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">...</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="scale">
+                    @if (Session["u_id"] == null)
+                    {
+                        @Html.ActionLink("Sign Out", "SignoutA", "Admin", null, new { @class = "ht" })
+                    }
+
+                <li>
+            </ul>
+        </div>
+
+
+    </nav>
+
+    @RenderBody()
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>
+</html>
